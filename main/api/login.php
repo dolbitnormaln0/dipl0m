@@ -22,7 +22,7 @@ try {
     $email = $data['email'] ?? '';
     $password = $data['password'] ?? '';
 
-    // Проверяем пользователя
+    
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
@@ -32,7 +32,7 @@ try {
         exit;
     }
 
-    // В реальном проекте нужно использовать password_verify()
+  
     if ($user['password'] !== $password) {
         echo json_encode(['success' => false, 'message' => 'Неверный пароль']);
         exit;
@@ -40,7 +40,7 @@ try {
 
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['user_name'] = $user['first_name'];
-    // Успешный вход
+    
     echo json_encode(['success' => true]);
 
 } catch (PDOException $e) {

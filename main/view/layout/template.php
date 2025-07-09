@@ -1,10 +1,8 @@
 <?php
-// Запускаем сессию, если она еще не запущена
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Проверяем, авторизован ли пользователь
 $isLoggedIn = isset($_SESSION['user_id']);
 $userName = $_SESSION['user_name'] ?? '';
 $userId = $_SESSION['user_id'] ?? null;
@@ -16,7 +14,6 @@ echo $userId;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($title ?? 'Интернет-магазин') ?></title>
     <style>
-        /* Общие стили */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -53,8 +50,6 @@ echo $userId;
             padding: 15px 0;
             margin-top: 30px;
         }
-
-        /* Стили для поиска и кнопок */
         .header-controls {
             display: flex;
             align-items: flex-start;
@@ -141,7 +136,6 @@ echo $userId;
             background: #c0392b;
         }
 
-        /* Гибкое расположение элементов шапки */
         .header-top {
             display: flex;
             justify-content: space-between;
@@ -154,14 +148,13 @@ echo $userId;
             align-items: center;
         }
 
-        /* Заголовок */
         header h1 {
             font-size: 22px;
             margin: 0;
             padding: 2px 0;
         }
 
-        /* Основное содержимое */
+        
         main {
             min-height: 60vh;
         }
@@ -209,7 +202,7 @@ echo $userId;
 
 <main class="container">
     <?php
-    // Подключаем конкретный view
+ 
     if (isset($view)) {
         require __DIR__ .DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR . $view . '.php';
     } else {
@@ -225,7 +218,7 @@ echo $userId;
 </footer>
 
 <script>
-    // Поиск при нажатии Enter
+
     document.querySelector('.search-input').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             document.querySelector('.search-button').click();

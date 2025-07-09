@@ -4,9 +4,9 @@
         <?php for($i=0;$i<count($products);$i++){ ?>
             <?php
 
-            // Подготовка данных
+    
             $rating = $product['average_rating'] ?? 0;
-            $starsCount = min(5, ceil($rating)); // Округляем вверх, максимум 5
+            $starsCount = min(5, ceil($rating)); 
             $emptyStars = 5 - $starsCount;
             ?>
 

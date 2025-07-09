@@ -231,9 +231,9 @@
 <?php
 
 function getRatingColor($rating) {
-    if ($rating >= 4) return '#27ae60'; // Зеленый
-    if ($rating >= 2) return '#f39c12'; // Оранжевый
-    return '#e74c3c'; // Красный
+    if ($rating >= 4) return '#27ae60'; 
+    if ($rating >= 2) return '#f39c12'; 
+    return '#e74c3c';
 }
 ?>
 
@@ -328,38 +328,37 @@ function getRatingColor($rating) {
         font-weight: bold;
     }
 
-    /* Остальные стили остаются прежними */
     .smart-filter {
         margin-bottom: 1rem;
         padding: 0.5rem;
         border-bottom: 1px solid #eee;
     }
-    /* ... остальные стили ... */
+ 
 </style>
 
 <script>
-    // Скрипт для показа/скрытия фильтров
+  
     document.addEventListener('DOMContentLoaded', function() {
         const toggleBtn = document.getElementById('toggle-filters');
         const filtersSection = document.getElementById('filters-section');
         const toggleIcon = toggleBtn.querySelector('.toggle-icon');
 
-        // Проверяем, есть ли активные фильтры
+
         const hasActiveFilters = window.location.search.includes('idCat=') ||
             window.location.search.includes('sortField=') ||
             window.location.search.includes('brand=');
 
-        // Изначально показываем фильтры, если есть активные
+      
         let filtersVisible = hasActiveFilters;
         updateFiltersVisibility();
 
-        // Обработчик клика по кнопке
+       
         toggleBtn.addEventListener('click', function() {
             filtersVisible = !filtersVisible;
             updateFiltersVisibility();
         });
 
-        // Функция обновления видимости
+       
         function updateFiltersVisibility() {
             if (filtersVisible) {
                 filtersSection.style.display = 'block';
@@ -377,17 +376,15 @@ function getRatingColor($rating) {
         const form = document.getElementById('category-filter-form');
         const url = new URL(window.location.href);
 
-        // Устанавливаем параметры
         url.searchParams.set('idCat', categoryId);
         url.searchParams.set('page', 1);
 
-        // Сохраняем другие параметры
+       
         const sortField = form.querySelector('input[name="sortField"]');
         if (sortField) {
             url.searchParams.set('sortField', sortField.value);
         }
 
-        // Переходим по новому URL
         window.location.href = url.toString();
     }
 </script>

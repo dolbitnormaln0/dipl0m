@@ -81,15 +81,14 @@
 
     function setImage(index) {
         currentIndex = index;
-        // Здесь можно добавить действие при клике на миниатюру
+       
         console.log("Selected image:", images[currentIndex]);
 
-        // Пример: можно открыть изображение в новом окне
-        // window.open(images[currentIndex], '_blank');
+       
     }
 
-    // Инициализация при загрузке
+ 
     window.onload = function() {
-        // Можно добавить инициализацию здесь
+
     };
 </script>

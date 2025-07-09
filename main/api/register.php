@@ -22,7 +22,7 @@ try {
     $email = $data['email'] ?? '';
     $password = $data['password'] ?? '';
 
-    // Проверяем, существует ли пользователь
+   
     $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->execute([$email]);
 
@@ -31,7 +31,7 @@ try {
         exit;
     }
 
-    // В реальном проекте нужно использовать password_hash()
+    
     $stmt = $pdo->prepare("INSERT INTO users (first_name, email, password) VALUES (?, ?, ?)");
     $stmt->execute([$firstName, $email, $password]);
 

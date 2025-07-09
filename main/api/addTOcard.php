@@ -16,12 +16,10 @@ if (!$productId) {
     exit;
 }
 
-// Инициализация корзины, если её нет
 if (!isset($_SESSION['card'])) {
     $_SESSION['card'] = [];
 }
 
-// Добавление товара (можно доработать логику для учёта количества)
 if (!key_exists($productId, $_SESSION['card'])) {
     $_SESSION['card'][$productId] = $productId;
     $_SESSION['card'][$productId] = ['quantity' => $quantity];
