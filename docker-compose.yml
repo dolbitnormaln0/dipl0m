@@ -26,10 +26,11 @@ services:
     image: mysql:8.0
     volumes:
      - './docker/storage/mysql:/var/lib/mysql'
+     - './my_db_test1.sql:/docker-entrypoint-initdb.d/my_db_test1.sql'
     restart: always
     environment:
      MYSQL_ROOT_PASSWORD: qwe123
-     MYSQL_DATABASE: mydb
+     MYSQL_DATABASE: my_db_test1
      MYSQL_USER: myuser
      MYSQL_PASSWORD: mypassword
      MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
